@@ -7,7 +7,14 @@ let tl = gsap.timeline({
   },
 });
 
-tl.fromTo('.sliding-text', { y: 0 }, { y: -400 });
+let tl2 = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.home',
+    start: '0%',
+    end: '100%',
+    scrub: 1,
+  },
+});
 
 let tl3 = gsap.timeline({
   scrollTrigger: {
@@ -18,3 +25,10 @@ let tl3 = gsap.timeline({
     pin: true,
   },
 });
+
+tl.fromTo('.sliding-text', { y: 0 }, { y: -400 });
+tl2.fromTo(
+  '.logo',
+  { scale: 6 },
+  { scale: 1, top: '2rem', left: '3rem', x: '50%', y: '50%' }
+);
